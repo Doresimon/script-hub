@@ -1,2 +1,3 @@
 *.pem
 confidential/*
+network/v2ray/config.json
