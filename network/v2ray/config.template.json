@@ -1,0 +1,41 @@
+{
+  "inbounds": [
+    {
+      "port": $PORT_X,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "$USER_GUID_X",
+            "level": 1,
+            "alterId": 64
+          }
+        ]
+      }
+    },
+    {
+      "port": $PORT_Y,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "$USER_GUID_Y",
+            "level": 1,
+            "alterId": 64
+          }
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
