@@ -13,7 +13,7 @@ export reource_group_name=rg_$group
 export reource_group_location=eastasia
 # vm
 export vm_name=vm_$group
-export vm_admin_username=user_$group
+export vm_admin_username=admin
 export vm_admin_password=@Pa55W0rD$RANDOM # The password length must be between 12 and 72. Password must have the 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
 export vm_authentication_type=ssh # [all, password, ssh]
 export vm_os_type=linux # [linux, windows]
