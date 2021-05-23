@@ -1,12 +1,12 @@
 {
   "inbounds": [
     {
-      "port": $PORT_X,
+      "port": %PORT_X%,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "$USER_GUID_X",
+            "id": "%USER_GUID_X%",
             "level": 1,
             "alterId": 64
           }
@@ -14,12 +14,12 @@
       }
     },
     {
-      "port": $PORT_Y,
+      "port": %PORT_Y%,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "$USER_GUID_Y",
+            "id": "%USER_GUID_Y%",
             "level": 1,
             "alterId": 64
           }
