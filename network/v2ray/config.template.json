@@ -1,53 +1,58 @@
 {
+  "log": {
+    "loglevel": "warning",
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log"
+  },
   "inbounds": [
     {
-      "port": "%PORT_10086%",
+      "port": %PORT_10086%,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
             "id": "%USER_GUID_10086%",
             "level": 1,
-            "alterId": 64
+            "alterId": 0
           }
         ]
       }
     },
     {
-      "port": "%PORT_10087%",
+      "port": %PORT_10087%,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
             "id": "%USER_GUID_10087%",
             "level": 1,
-            "alterId": 64
+            "alterId": 0
           }
         ]
       }
     },
     {
-      "port": "%PORT_10088%",
+      "port": %PORT_10088%,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
             "id": "%USER_GUID_10088%",
             "level": 1,
-            "alterId": 64
+            "alterId": 0
           }
         ]
       }
     },
     {
-      "port": "%PORT_10089%",
+      "port": %PORT_10089%,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
             "id": "%USER_GUID_10089%",
             "level": 1,
-            "alterId": 64
+            "alterId": 0
           }
         ]
       }
