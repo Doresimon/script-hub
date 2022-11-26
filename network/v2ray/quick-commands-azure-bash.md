@@ -7,17 +7,19 @@
 #### Step 1 (Azure Bash) ####
 
 ### parameters ###
-export lucky_numer=$RANDOM
-export group=v2ray_$lucky_numer
+export today=$(date +%Y%m%d)
+export lucky_number=$RANDOM
+export group=v2ray_${today}_$lucky_number
 export reource_group_name=rg_$group
 export reource_group_location=eastasia
 export vm_name=vm_$group
-export vm_admin_username=admin
+export vm_admin_username=halo
 export vm_admin_password=@Pa55W0rD$RANDOM # The password length must be between 12 and 72. Password must have the 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
 export vm_authentication_type=all # [all, password, ssh]
 export vm_image_type=UbuntuLTS # [UbuntuLTS]
 export vm_size=Standard_DS1_v2 # $78.11/month
-export vm_ports_to_open=10086,10087 #
+# export vm_ports_to_open=10086,10087 #
+export vm_ports_to_open=10086-10096 #
 
 ### create resource group ###
 az group create \
@@ -33,6 +35,7 @@ az vm create \
 --authentication-type  $vm_authentication_type \
 --image $vm_image_type \
 --size $vm_size \
+--public-ip-sku Standard \
 --generate-ssh-keys
 
 ### open port ###
@@ -52,20 +55,30 @@ ssh -i ~/.ssh/id_rsa $vm_admin_username@$vm_public_ip -o StrictHostKeyChecking=n
 
 ### in vm~ ###
 export workdir=work
-export PORT_X=10086
-export USER_GUID_X=$(uuidgen)
-export PORT_Y=10087
-export USER_GUID_Y=$(uuidgen)
+export PORT_10086=10086
+export USER_GUID_10086=$(uuidgen)
+export PORT_10087=10087
+export USER_GUID_10087=$(uuidgen)
+export PORT_10088=10088
+export USER_GUID_10088=$(uuidgen)
+export PORT_10089=10089
+export USER_GUID_10089=$(uuidgen)
 export JSON_PATH="/usr/local/etc/v2ray"
+export CONFIG_CURRENT_JSON_FILE="config.current.json"
 export CONFIG_JSON_FILE="$JSON_PATH/config.json"
 sudo apt update && sudo apt install curl
 mkdir $workdir && cd $workdir
 curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && sudo bash install-release.sh
-curl -O https://raw.githubusercontent.com/Doresimon/script-hub/v2ray-config-template/network/v2ray/config.template.json && sudo cp config.template.json $CONFIG_JSON_FILE
-sudo sed -i "s/%PORT_X%/$PORT_X/" $CONFIG_JSON_FILE
-sudo sed -i "s/%USER_GUID_X%/$USER_GUID_X/" $CONFIG_JSON_FILE
-sudo sed -i "s/%PORT_Y%/$PORT_Y/" $CONFIG_JSON_FILE
-sudo sed -i "s/%USER_GUID_Y%/$USER_GUID_Y/" $CONFIG_JSON_FILE
+curl -O https://raw.githubusercontent.com/Doresimon/script-hub/v2ray-config-template/network/v2ray/config.template.json && sudo cp config.template.json $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%PORT_10086%/$PORT_10086/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%USER_GUID_10086%/$USER_GUID_10086/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%PORT_10087%/$PORT_10087/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%USER_GUID_10087%/$USER_GUID_10087/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%PORT_10088%/$PORT_10088/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%USER_GUID_10088%/$USER_GUID_10088/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%PORT_10089%/$PORT_10089/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%USER_GUID_10089%/$USER_GUID_10089/" $CONFIG_CURRENT_JSON_FILE 
+sudo cp $CONFIG_CURRENT_JSON_FILE $CONFIG_JSON_FILE
 sudo systemctl restart v2ray
 systemctl status v2ray
 
@@ -78,7 +91,7 @@ systemctl status v2ray
 #### Step 3 (Get All Parameters) ####
 
 # in VM
-echo -e "\n################################################\n####            User Parameter ~            ####\n################################################\nUser X:\nPort = $PORT_X\nGuid = $USER_GUID_X\nLevel = 1\nAlterId = 64\n################################################\nUser Y:\nPort = $PORT_Y\nGuid = $USER_GUID_Y\nLevel = 1\nAlterId = 64\n################################################" && exit
+echo -e "\n################################################\n####            User Parameter ~            ####\n################################################\nUser 10086:\nPort = $PORT_10086\nGuid = $USER_GUID_10086\nLevel = 1\nAlterId = 64\n################################################\nUser 10087:\nPort = $PORT_10087\nGuid = $USER_GUID_10087\nLevel = 1\nAlterId = 64\n################################################\nUser 10088:\nPort = $PORT_10088\nGuid = $USER_GUID_10088\nLevel = 1\nAlterId = 64\n################################################\nUser 10089:\nPort = $PORT_10089\nGuid = $USER_GUID_10089\nLevel = 1\nAlterId = 64\n################################################" && exit
 # in Azure Bash
 echo -e "\n################################################\n####             VM Parameter ~             ####\n################################################\nVM:\nPublic IP = $vm_public_ip\nName = $vm_name\nResource Group = $reource_group_name\n################################################"
 

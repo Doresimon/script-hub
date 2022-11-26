@@ -1,12 +1,12 @@
 {
   "inbounds": [
     {
-      "port": %PORT_X%,
+      "port": %PORT_10086%,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "%USER_GUID_X%",
+            "id": "%USER_GUID_10086%",
             "level": 1,
             "alterId": 64
           }
@@ -14,18 +14,44 @@
       }
     },
     {
-      "port": %PORT_Y%,
+      "port": %PORT_10087%,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "%USER_GUID_Y%",
+            "id": "%USER_GUID_10087%",
             "level": 1,
             "alterId": 64
           }
         ]
       }
-    }
+    },
+    {
+      "port": %PORT_10088%,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "%USER_GUID_10088%",
+            "level": 1,
+            "alterId": 64
+          }
+        ]
+      }
+    },
+    {
+      "port": %PORT_10089%,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "%USER_GUID_10089%",
+            "level": 1,
+            "alterId": 64
+          }
+        ]
+      }
+    },
   ],
   "outbounds": [
     {
