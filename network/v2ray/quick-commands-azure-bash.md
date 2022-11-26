@@ -16,9 +16,8 @@ export vm_name=vm_$group
 export vm_admin_username=halo
 export vm_admin_password=@Pa55W0rD$RANDOM # The password length must be between 12 and 72. Password must have the 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
 export vm_authentication_type=all # [all, password, ssh]
-export vm_image_type=UbuntuLTS # [UbuntuLTS]
-export vm_size=Standard_DS1_v2 # $78.11/month
-# export vm_ports_to_open=10086,10087 #
+export vm_image_type=Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest # [UbuntuLTS, Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest]
+export vm_size=Standard_D2s_v3 # HK$550/month ## az vm list-sizes
 export vm_ports_to_open=10086-10096 #
 
 ### create resource group ###
@@ -36,6 +35,7 @@ az vm create \
 --image $vm_image_type \
 --size $vm_size \
 --public-ip-sku Standard \
+--zone 2 \
 --generate-ssh-keys
 
 ### open port ###
@@ -66,10 +66,10 @@ export USER_GUID_10089=$(uuidgen)
 export JSON_PATH="/usr/local/etc/v2ray"
 export CONFIG_CURRENT_JSON_FILE="config.current.json"
 export CONFIG_JSON_FILE="$JSON_PATH/config.json"
-sudo apt update && sudo apt install curl
+sudo apt update -y && sudo apt install curl -y
 mkdir $workdir && cd $workdir
 curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && sudo bash install-release.sh
-curl -O https://raw.githubusercontent.com/Doresimon/script-hub/v2ray-config-template/network/v2ray/config.template.json && sudo cp config.template.json $CONFIG_CURRENT_JSON_FILE 
+curl -O https://raw.githubusercontent.com/Doresimon/script-hub/main/network/v2ray/config.template.json && sudo cp config.template.json $CONFIG_CURRENT_JSON_FILE 
 sudo sed -i "s/%PORT_10086%/$PORT_10086/" $CONFIG_CURRENT_JSON_FILE 
 sudo sed -i "s/%USER_GUID_10086%/$USER_GUID_10086/" $CONFIG_CURRENT_JSON_FILE 
 sudo sed -i "s/%PORT_10087%/$PORT_10087/" $CONFIG_CURRENT_JSON_FILE 

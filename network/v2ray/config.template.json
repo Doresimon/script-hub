@@ -1,7 +1,7 @@
 {
   "inbounds": [
     {
-      "port": %PORT_10086%,
+      "port": "%PORT_10086%",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -14,7 +14,7 @@
       }
     },
     {
-      "port": %PORT_10087%,
+      "port": "%PORT_10087%",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -27,7 +27,7 @@
       }
     },
     {
-      "port": %PORT_10088%,
+      "port": "%PORT_10088%",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -40,7 +40,7 @@
       }
     },
     {
-      "port": %PORT_10089%,
+      "port": "%PORT_10089%",
       "protocol": "vmess",
       "settings": {
         "clients": [
