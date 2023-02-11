@@ -11,7 +11,9 @@ export today=$(date +%Y%m%d)
 export lucky_number=$RANDOM
 export group=v2ray_${today}_$lucky_number
 export reource_group_name=rg_$group
-export reource_group_location=eastasia
+# export reource_group_name=charming-leaf
+# export reource_group_location=eastasia # HongKong
+export reource_group_location=southeastasia # Singapore
 export vm_name=vm_$group
 export vm_admin_username=halo
 export vm_admin_password=@Pa55W0rD$RANDOM # The password length must be between 12 and 72. Password must have the 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
@@ -91,7 +93,8 @@ systemctl status v2ray
 #### Step 3 (Get All Parameters) ####
 
 # in VM
-echo -e "\n################################################\n####            User Parameter ~            ####\n################################################\nUser 10086:\nPort = $PORT_10086\nGuid = $USER_GUID_10086\nLevel = 1\nAlterId = 64\n################################################\nUser 10087:\nPort = $PORT_10087\nGuid = $USER_GUID_10087\nLevel = 1\nAlterId = 64\n################################################\nUser 10088:\nPort = $PORT_10088\nGuid = $USER_GUID_10088\nLevel = 1\nAlterId = 64\n################################################\nUser 10089:\nPort = $PORT_10089\nGuid = $USER_GUID_10089\nLevel = 1\nAlterId = 64\n################################################" && exit
+echo -e "\n################################################\n####            User Parameter ~            ####\n################################################\nUser 10086:\nPort = $PORT_10086\nGuid = $USER_GUID_10086\nLevel = 1\nAlterId = 0\n################################################\nUser 10087:\nPort = $PORT_10087\nGuid = $USER_GUID_10087\nLevel = 1\nAlterId = 0\n################################################\nUser 10088:\nPort = $PORT_10088\nGuid = $USER_GUID_10088\nLevel = 1\nAlterId = 0\n################################################\nUser 10089:\nPort = $PORT_10089\nGuid = $USER_GUID_10089\nLevel = 1\nAlterId = 0\n################################################" 
+exit
 # in Azure Bash
 echo -e "\n################################################\n####             VM Parameter ~             ####\n################################################\nVM:\nPublic IP = $vm_public_ip\nName = $vm_name\nResource Group = $reource_group_name\n################################################"
 
