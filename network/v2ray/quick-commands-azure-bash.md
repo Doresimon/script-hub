@@ -13,13 +13,15 @@ export group=v2ray_${today}_$lucky_number
 export reource_group_name=rg_$group
 # export reource_group_name=charming-leaf
 # export reource_group_location=eastasia # HongKong
-export reource_group_location=southeastasia # Singapore
+# export reource_group_location=southeastasia # Singapore
+export reource_group_location=westus # West US
 export vm_name=vm_$group
 export vm_admin_username=halo
 export vm_admin_password=@Pa55W0rD$RANDOM # The password length must be between 12 and 72. Password must have the 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
 export vm_authentication_type=all # [all, password, ssh]
 export vm_image_type=Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest # [UbuntuLTS, Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest]
-export vm_size=Standard_D2s_v3 # HK$550/month ## az vm list-sizes
+# export vm_size=Standard_D2s_v3 # HK$550/month; $91.25/month ## az vm list-sizes
+export vm_size=Standard_D2s_v5 # $87.60/month
 export vm_ports_to_open=10086-10096 #
 
 ### create resource group ###
@@ -65,6 +67,14 @@ export PORT_10088=10088
 export USER_GUID_10088=$(uuidgen)
 export PORT_10089=10089
 export USER_GUID_10089=$(uuidgen)
+export PORT_10090=10090
+export USER_GUID_10090=$(uuidgen)
+export PORT_10091=10091
+export USER_GUID_10091=$(uuidgen)
+export PORT_10092=10092
+export USER_GUID_10092=$(uuidgen)
+export PORT_10093=10093
+export USER_GUID_10093=$(uuidgen)
 export JSON_PATH="/usr/local/etc/v2ray"
 export CONFIG_CURRENT_JSON_FILE="config.current.json"
 export CONFIG_JSON_FILE="$JSON_PATH/config.json"
@@ -80,6 +90,14 @@ sudo sed -i "s/%PORT_10088%/$PORT_10088/" $CONFIG_CURRENT_JSON_FILE
 sudo sed -i "s/%USER_GUID_10088%/$USER_GUID_10088/" $CONFIG_CURRENT_JSON_FILE 
 sudo sed -i "s/%PORT_10089%/$PORT_10089/" $CONFIG_CURRENT_JSON_FILE 
 sudo sed -i "s/%USER_GUID_10089%/$USER_GUID_10089/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%PORT_10090%/$PORT_10090/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%USER_GUID_10090%/$USER_GUID_10090/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%PORT_10091%/$PORT_10091/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%USER_GUID_10091%/$USER_GUID_10091/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%PORT_10092%/$PORT_10092/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%USER_GUID_10092%/$USER_GUID_10092/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%PORT_10093%/$PORT_10093/" $CONFIG_CURRENT_JSON_FILE 
+sudo sed -i "s/%USER_GUID_10093%/$USER_GUID_10093/" $CONFIG_CURRENT_JSON_FILE 
 sudo cp $CONFIG_CURRENT_JSON_FILE $CONFIG_JSON_FILE
 sudo systemctl restart v2ray
 systemctl status v2ray
@@ -93,7 +111,7 @@ systemctl status v2ray
 #### Step 3 (Get All Parameters) ####
 
 # in VM
-echo -e "\n################################################\n####            User Parameter ~            ####\n################################################\nUser 10086:\nPort = $PORT_10086\nGuid = $USER_GUID_10086\nLevel = 1\nAlterId = 0\n################################################\nUser 10087:\nPort = $PORT_10087\nGuid = $USER_GUID_10087\nLevel = 1\nAlterId = 0\n################################################\nUser 10088:\nPort = $PORT_10088\nGuid = $USER_GUID_10088\nLevel = 1\nAlterId = 0\n################################################\nUser 10089:\nPort = $PORT_10089\nGuid = $USER_GUID_10089\nLevel = 1\nAlterId = 0\n################################################" 
+echo -e "\n################################################\n####            User Parameter ~            ####\n################################################\nUser 10086:\nPort = $PORT_10086\nGuid = $USER_GUID_10086\nLevel = 1\nAlterId = 0\n################################################\nUser 10087:\nPort = $PORT_10087\nGuid = $USER_GUID_10087\nLevel = 1\nAlterId = 0\n################################################\nUser 10088:\nPort = $PORT_10088\nGuid = $USER_GUID_10088\nLevel = 1\nAlterId = 0\n################################################\nUser 10089:\nPort = $PORT_10089\nGuid = $USER_GUID_10089\nLevel = 1\nAlterId = 0\n################################################\nUser 10090:\nPort = $PORT_10090\nGuid = $USER_GUID_10090\nLevel = 1\nAlterId = 0\n################################################\nUser 10091:\nPort = $PORT_10091\nGuid = $USER_GUID_10091\nLevel = 1\nAlterId = 0\n################################################\nUser 10092:\nPort = $PORT_10092\nGuid = $USER_GUID_10092\nLevel = 1\nAlterId = 0\n################################################\nUser 10093:\nPort = $PORT_10093\nGuid = $USER_GUID_10093\nLevel = 1\nAlterId = 0\n################################################" 
 exit
 # in Azure Bash
 echo -e "\n################################################\n####             VM Parameter ~             ####\n################################################\nVM:\nPublic IP = $vm_public_ip\nName = $vm_name\nResource Group = $reource_group_name\n################################################"

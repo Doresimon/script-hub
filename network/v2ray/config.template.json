@@ -56,6 +56,58 @@
           }
         ]
       }
+    },
+    {
+      "port": %PORT_10090%,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "%USER_GUID_10090%",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      }
+    },
+    {
+      "port": %PORT_10091%,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "%USER_GUID_10091%",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      }
+    },
+    {
+      "port": %PORT_10092%,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "%USER_GUID_10092%",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      }
+    },
+    {
+      "port": %PORT_10093%,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "%USER_GUID_10093%",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      }
     }
   ],
   "outbounds": [
