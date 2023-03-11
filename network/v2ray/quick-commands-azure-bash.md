@@ -14,14 +14,14 @@ export reource_group_name=rg_$group
 # export reource_group_name=charming-leaf
 # export reource_group_location=eastasia # HongKong
 # export reource_group_location=southeastasia # Singapore
-export reource_group_location=westus # West US
+export reource_group_location=westus2 # West US
 export vm_name=vm_$group
 export vm_admin_username=halo
 export vm_admin_password=@Pa55W0rD$RANDOM # The password length must be between 12 and 72. Password must have the 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
 export vm_authentication_type=all # [all, password, ssh]
 export vm_image_type=Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest # [UbuntuLTS, Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest]
-# export vm_size=Standard_D2s_v3 # HK$550/month; $91.25/month ## az vm list-sizes
-export vm_size=Standard_D2s_v5 # $87.60/month
+# export vm_size=Standard_D2s_v3 # HK$550/month; $70.08/month ## az vm list-sizes
+export vm_size=Standard_D2as_v5 # $62.78/month
 export vm_ports_to_open=10086-10096 #
 
 ### create resource group ###
