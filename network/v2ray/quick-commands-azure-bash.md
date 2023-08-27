@@ -13,8 +13,8 @@ export group=v2ray_${today}_$lucky_number
 export reource_group_name=rg_$group
 # export reource_group_name=charming-leaf
 # export reource_group_location=eastasia # HongKong
-# export reource_group_location=southeastasia # Singapore
-export reource_group_location=westus2 # West US
+export reource_group_location=southeastasia # Singapore
+# export reource_group_location=westus2 # West US
 export vm_name=vm_$group
 export vm_admin_username=halo
 export vm_admin_password=@Pa55W0rD$RANDOM # The password length must be between 12 and 72. Password must have the 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
@@ -100,7 +100,7 @@ sudo sed -i "s/%PORT_10093%/$PORT_10093/" $CONFIG_CURRENT_JSON_FILE
 sudo sed -i "s/%USER_GUID_10093%/$USER_GUID_10093/" $CONFIG_CURRENT_JSON_FILE 
 sudo cp $CONFIG_CURRENT_JSON_FILE $CONFIG_JSON_FILE
 sudo systemctl restart v2ray
-systemctl status v2ray
+# systemctl status v2ray
 
 #### Step 2 (Done) ####
 #######################
