@@ -5,7 +5,17 @@
 ## usage
 
 ```bash
+# install
+curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && sudo bash install-release.sh
 
+# config path
+cat /usr/local/etc/v2ray/config.json
+
+# copy config
+sudo cp ./config.json /usr/local/etc/v2ray/config.json 
+
+# restart
+sudo systemctl restart v2ray 
 ```
 
 ## config
